@@ -1,2 +1,2 @@
-# Sistema-de-Digitalizaci-n-y-B-squeda-ORMD-
+# Sistema de Digitalización y Búsqueda ORMD Arequipa
 Proyecto final de curso
