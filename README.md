@@ -65,7 +65,23 @@ Módulos del Sistema
 ## 🔳Modelo de Datos
 El modelo de datos se enfoca en centralizar la información de la persona (ciudadanos) y vincularla a los documentos originales (documentos).
 
-![App Screenshot](https://github.com/YonyVilca/pruebas/blob/main/Imagen1.jpg))
+![App Screenshot](https://github.com/YonyVilca/ORMD-Arequipa/blob/main/ORMD_DOC/Modelo%20de%20datos.png)
+
+## 🔳PIPELINE Extracción de Datos de PDF basado en OCR
+### Fase de OCR y Preprocesamiento
+Esta fase se encarga de convertir el PDF en texto legible por máquina.
+Ingesta y Preprocesamiento de Imágenes: Carga el PDF y convierte cada página en una imagen.
+- Mejora de Imagen: Aplica corrección de sesgo (deskew) para enderezar el texto y, en modo calidad, mejora el contraste (CLAHE) y selecciona la mejor binarización (blanco y negro), incluso aplicando un filtro para eliminar líneas de formularios.
+- Generación de Texto: Ejecuta Tesseract OCR sobre la imagen optimizada y guarda el resultado en un archivo de texto plano
+
+### Fase de Análisis y Estructuración
+Esta fase procesa el texto plano para identificar y extraer la información clave.
+- Normalización de Texto: Limpia el texto de errores comunes de OCR y normaliza espacios.
+- Extracción de Campos: Utiliza expresiones regulares (regex) robustas para buscar y aislar valores específicos (Nombres, DNI, Fechas, Unidades, etc.).
+- Normalización de Datos: Convierte los meses a formato numérico, corrige errores de lectura en el DNI (ej., 'O' por '0') y estandariza las fechas a AAAA-MM-DD.
+- Salida Estructurada: Genera la información extraída en un formato de datos estructurado.
+
+![App Screenshot](https://github.com/YonyVilca/ORMD-Arequipa/blob/main/ORMD_DOC/PIPELINE.png)
 
 ## 🔳Autores
 - [@YonyVilca](https://github.com/YonyVilca)
@@ -75,6 +91,6 @@ El modelo de datos se enfoca en centralizar la información de la persona (ciuda
 | Versión | Fecha    | Cambios Principales              |
 | :-------- | :------- | :------------------------- |
 | v0.1.0 | `03-10-2025` | inicio del proyecto |
-
+| v0.2.0 | `10-10-2025` | Primer entregable |
 
 

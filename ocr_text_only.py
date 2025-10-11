@@ -1,8 +1,7 @@
 # ocr_text_only.py
 # Requisitos:
 #   pip install opencv-python-headless pytesseract pdf2image pillow deskew
-# Además: Tener Tesseract y Poppler instalados (y en PATH).
-# En Windows: ajusta pytesseract.pytesseract.tesseract_cmd si hace falta.
+
 
 import cv2, pytesseract, re, time, logging
 import numpy as np
@@ -11,11 +10,11 @@ from PIL import Image
 from deskew import determine_skew
 from pathlib import Path
 
-# ================== CONFIG ==================
+
 PDF_PATH = '18.pdf'
 OUT_TEXT = 'extracted_text.txt'
 
-# Cambia a True para ejecución más rápida (menos filtros, 1 binarizado, 300 DPI)
+
 FAST_MODE = True
 
 # Si FAST_MODE=False => QUALITY_MODE: más calidad (más filtros, 2 binarizados, 400 DPI)
@@ -31,7 +30,7 @@ def to_cv2(pil_img: Image.Image) -> np.ndarray:
     return cv2.cvtColor(np.array(pil_img.convert('RGB')), cv2.COLOR_RGB2BGR)
 
 def rotate_by_angle(img, angle):
-    if abs(angle) < 0.8:  # Deskew solo si es notorio (acelera)
+    if abs(angle) < 0.8:  
         return img
     h, w = img.shape[:2]
     M = cv2.getRotationMatrix2D((w//2, h//2), angle, 1.0)
@@ -40,7 +39,7 @@ def rotate_by_angle(img, angle):
 def remove_lines_soft(bin_img):
     # bin_img: 0=negro, 255=blanco. Si no es así, invierte antes.
     inv = 255 - bin_img
-    hk = cv2.getStructuringElement(cv2.MORPH_RECT, (24,1))  # suave/rápido
+    hk = cv2.getStructuringElement(cv2.MORPH_RECT, (24,1))  
     vk = cv2.getStructuringElement(cv2.MORPH_RECT, (1,24))
     horiz = cv2.morphologyEx(inv, cv2.MORPH_OPEN, hk, iterations=1)
     vert  = cv2.morphologyEx(inv, cv2.MORPH_OPEN, vk, iterations=1)
@@ -121,7 +120,7 @@ def main():
     logging.info(f'Páginas: {len(pages)}')
 
     all_text = []
-    cfg = '-l spa+eng --oem 1 --psm 6'  # configuración estable para formularios con bloques
+    cfg = '-l spa+eng --oem 1 --psm 6'  
 
     for i, page in enumerate(pages, start=1):
         cv = to_cv2(page)
