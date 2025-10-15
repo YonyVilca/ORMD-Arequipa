@@ -1,4 +1,6 @@
 # Sistema de Gestión Documental para la ORMD Arequipa
+##VIDEO DE LA PARTE OCR -LOGIN - ENLACE
+https://drive.google.com/file/d/13bqZkHxhglUsQmKImqzIQRSHj33VtCaY/view?usp=sharing
 
 ## 💡Resumen 
 
