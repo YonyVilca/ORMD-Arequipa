@@ -67,7 +67,7 @@ Módulos del Sistema
 ## 🔳Modelo de Datos
 El modelo de datos se enfoca en centralizar la información de la persona (ciudadanos) y vincularla a los documentos originales (documentos).
 
-![App Screenshot](https://github.com/YonyVilca/ORMD-Arequipa/blob/main/ORMD_DOC/Modelo%20de%20datos.png)
+![App Screenshot](https://github.com/YonyVilca/ORMD-Arequipa/blob/main/ORMD_DOC/modelo%20de%20datos%20actualizado.PNG)
 
 ## 🔳PIPELINE Extracción de Datos de PDF basado en OCR
 ### Fase de OCR y Preprocesamiento
