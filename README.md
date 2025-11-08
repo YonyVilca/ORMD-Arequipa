@@ -94,6 +94,7 @@ Esta fase procesa el texto plano para identificar y extraer la información clav
 | :-------- | :------- | :------------------------- |
 | v0.1.0 | `03-10-2025` | inicio del proyecto |
 | v0.2.0 | `10-10-2025` | Primer entregable |
+| v0.3.0 | `08-11-2025` | Segundo entregable |
 
 ## 🔳Probar Codigo
 - git clone https://github.com/YonyVilca/ORMD-Arequipa.git
